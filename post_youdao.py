@@ -17,5 +17,5 @@ form_data={
 'keyfrom':'fanyi.web',
 'action':'FY_BY_CLICKBUTTION'
 }
-reponse=requests.post(url,form_data)
-print(reponse.text)
+response=requests.post(url,data=form_data)
+print(repsonse.text)
