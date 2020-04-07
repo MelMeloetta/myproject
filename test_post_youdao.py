@@ -7,9 +7,16 @@ class PostYoudaoTest(unittest.TestCase):
         self.assertEqual(True,True)
 
     def test_get_ts(self):
-        get_ts=mock.Mock(return_value= '1585615635349')
-        self.assertEqual('1585615635349',get_ts())
+        get_ts = mock.Mock(return_value='1585614755320')
+        self.assertEqual('1585614755320', get_ts())
 
+    def test_get_salt(self):
+        get_salt = mock.Mock(return_value='15856156353491')
+        self.assertEqual('15856156353491',get_salt())
 
-if __name__ =='__main__':
+    def test_get_sign(self):
+        get_sign = mock.Mock(return_value='308b3838d4426879f828b90a600357d6')
+        self.assertEqual('308b3838d4426879f828b90a600357d6', get_sign())
+
+if __name__ == '__main__':
     unittest.main()
