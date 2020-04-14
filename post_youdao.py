@@ -30,14 +30,14 @@ class Youdao():
         i=self.salt
         e=self.content
         s="fanyideskweb"+e+i+"Nw(nmmbP%A-r6U3EUn]Aj"
-        print("s=", self.get_md5(s))
+        # print("s=", self.get_md5(s))
         return self.get_md5(s)
 
 
     def get_ts(self):
         t = time.time()
         ts = str(int(round(t * 1000)))
-        print('ts=',ts)
+        # print('ts=',ts)
         return ts
 
 
@@ -72,9 +72,14 @@ class Youdao():
 
     def fanyi(self):
         response = requests.post(self.url, data=self.yield_form_data(), headers=self.get_headers())
-        return response.text
+        import json
+        content=json.loads(response.text)
+        # print(content)
+        return content['translateResult'][0][0]['tgt']
 
 
 if __name__ =="__main__":
-    youdao=Youdao('牛鼻')
-    print(youdao.fanyi())
+    while(True):
+        i=input('please input : ')
+        youdao=Youdao(i)
+        print('translate result : ',youdao.fanyi())
